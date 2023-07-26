@@ -1,122 +1,133 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    justify-content: center;
-    align-items: center;
+  margin: 0;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
 }
 
 button {
-    cursor: pointer;
-
+  cursor: pointer;
 }
 
-
 body {
-    color: black;
-    height: 100vh;
-    display: flex;
-    background-image: url(image/Background.png);
-    background-size: cover;
-    background-position: center center;
-
-
+  color: black;
+  height: 100vh;
+  display: flex;
+  background-image: url(image/Background\ -\ Projeto\ Cipher.png);
+  background-size: cover;
+  background-position: center center;
 }
 
 .pages {
-    padding: 48px 66px;
-    height: 450px;
-    width: 660px;
-    text-align: center;
-    font-family: 'AbibasMedium';
-    font-weight: normal;
-    font-style: normal;
+  padding: 48px 66px;
+  height: 450px;
+  width: 660px;
+  text-align: center;
+  font-family: "AbibasMedium";
+  font-weight: normal;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .title {
-    padding: 0;
-    font-size: 44px;
+  font-size: 44px;
 }
 
 .text-page-one {
-    padding: 0 12px;
-    font-size: 25px;
-    margin-top: 25px;
+  padding: 0 77px;
+  margin-top: 10px;
+  font-size: 20px;
+  font-family: "Alata", sans-serif;
 }
 
 .btn {
-    padding: 15px 60px;
-    font-size: 15px;
-    margin-top: 46px;
-    background-color: #CC9933;
+  padding: 11px 50px;
+  font-size: 15px;
+  margin-top: 46px;
+  background-color: #cc9933;
 
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
-    font-weight: bold;
-    font-family: 'Bogart Alt', sans-serif;
-
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+  font-weight: bold;
+  font-family: "Alata", sans-serif;
 }
 
 .btn:hover {
-    filter: brightness(0.8);
-}
-
-a:visited {
-    color: black;
-}
-
-a {
-    text-decoration: none;
-}
-
-.offset-input {
-    width: 500px;
-    height: 38px;
-    margin-top: 20px;
-    text-align: center;
-    font-family: 'Bogart Alt', sans-serif;
-
-}
-
-.btn-offset {
-    margin-top: 57px;
-
-}
-
-.title-two {
-    text-align: justify;
-}
-
-.text-page-two {
-    text-align: justify;
-    font-size: 25px;
+  filter: brightness(0.8);
 }
 
 .btn-encode {
-    float: left;
-    margin-top: 21px;
-    padding: 15px 87px;
-
+  float: left;
+  margin-top: 21px;
+  padding: 11px 85px;
+  margin: 21px 33px 0px 0px;
 }
 
 .btn-decode {
-    float: right;
-    margin-top: 21px;
-    padding: 15px 87px;
+  float: right;
+  margin-top: 21px;
+  padding: 11px 85px;
+  margin: 21px 0px 0px 12px;
+}
 
+a:visited {
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+.offset-title {
+  margin-top: 15px;
+}
+.offset-input {
+  width: 528px;
+  height: 38px;
+  margin-top: 20px;
+  text-align: center;
+  font-family: "Alata", sans-serif;
+}
+
+.title-pages {
+  text-align: justify;
+  font-size: 25px;
+}
+.title-page-coded {
+  font-size: 20px;
+  text-align: justify;
+}
+
+.title-page-decoded {
+  font-size: 23px;
+  text-align: justify;
 }
 
 .write-secret {
-    resize: none;
-    margin-top: 15px;
-    text-align: justify;
+  resize: none;
+  padding: 10px;
+  margin-top: 15px;
+  font-family: "Alata", sans-serif;
 }
 
 .write-secret::placeholder {
-    padding: 10px;
-    font-family: 'Bogart Alt', sans-serif;
-
+  font-family: "Alata", sans-serif;
 }
 
-.options {
-    margin-top: 20px;
+.options-write-secret {
+  margin-top: 20px;
+}
+
+.resultMessage {
+  padding: 18px 18px;
+  background: white;
+  margin-top: 33px;
+  height: 200px;
+  width: 100%;
+  word-break: normal;
+  overflow: auto;
+  font-family: "Alata", sans-serif;
+  font-size: 15px;
 }

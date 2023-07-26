@@ -1,30 +1,27 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>Caesar Cipher</title>
     <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/abibas" type="text/css" />
-    <link href=" https://fonts.cdnfonts.com/css/bogart-alt " rel="stylesheet">
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="https://fontlibrary.org//face/abibas"
+      type="text/css"
+    />
+    <link href=" https://fonts.cdnfonts.com/css/alata " rel="stylesheet" />
+  </head>
 
-</head>
-
-<body>
-
-    <main class="home">
-
-        <div class="pages">
-            <h1 class="title title-four">Os seus segredos foram revelados</h1>
-
-            <button class="btn write-another-message"><a href="../index.html">Escrever outra mensagem</a></button>
-
-        </div>
-
+  <body>
+    <main class="pages">
+      <section class="title-page-decoded">
+        <h1>Os seus segredos foram revelados</h1>
+        <div id="decodedMessage" class="resultMessage"></div>
+      </section>
+      <a class="btn" href="../index.html"> Escrever outra mensagem </a>
     </main>
 
-
-    <script src="index.js" type="module"></script>
-</body>
-
+    <script src="../decodedMessage.js" type="module"></script>
+  </body>
 </html>

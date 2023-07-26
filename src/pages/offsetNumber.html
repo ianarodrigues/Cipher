@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>Caesar Cipher</title>
     <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/abibas" type="text/css" />
-    <link href=" https://fonts.cdnfonts.com/css/bogart-alt " rel="stylesheet">
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="https://fontlibrary.org//face/abibas"
+      type="text/css"
+    />
+    <link href=" https://fonts.cdnfonts.com/css/alata " rel="stylesheet" />
+  </head>
 
-</head>
-
-<body>
-
-    <main class="home">
-
-        <div class="pages">
-            <h1 class="title title-two">Secret friend,</h1>
-
-            <section class="text-page-two">
-                <br>
-                <p>Escolha uma chave númerica para acessar a sua mensagem, apenas aquele que tem a chave conseguirá
-                    acessar a
-                    mensagem secreta:</p>
-                <input class="offset-input" type="text" placeholder="Digite a sua chave aqui. Ex.:7" required>
-            </section>
-
-            <br><button class="btn btn-offset"><a href="writeSecret.html">Escreva a sua mensagem
-                    secreta</a></button>
-        </div>
-
+  <body>
+    <main class="pages">
+      <section class="title-pages">
+        <h1 class="title">Secret friend,</h1>
+        <p class="offset-title">
+          Escolha uma chave númerica para acessar a sua mensagem, apenas aquele
+          que tem a chave conseguirá acessar a mensagem secreta:
+        </p>
+        <input
+          class="offset-input"
+          type="number"
+          min="1"
+          placeholder="Digite a sua chave aqui. Ex.:7"
+          required
+        />
+      </section>
+      <a class="btn btn-offset" href="writeSecret.html">
+        Escreva a sua mensagem secreta
+      </a>
     </main>
 
-
-    <script src="index.js" type="module"></script>
-</body>
-
+    <script src="../offsetNumber.js" type="module"></script>
+  </body>
 </html>
