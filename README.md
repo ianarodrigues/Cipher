@@ -91,7 +91,6 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias e ferramentas:
 - Visual Studio Code
 - GitBash
 - GitHub
-- Canva
 
 ## 8. Melhorias futuras
 
