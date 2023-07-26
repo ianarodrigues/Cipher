@@ -2,452 +2,105 @@
 
 ## Índice
 
-* [1. Prefácio](#1-prefácio)
-* [2. Resumo do projeto](#2-resumo-do-projeto)
-* [3. Considerações gerais](#3-considerações-gerais)
-* [4. Marco: Critérios de Aceitação Mínimos do Projeto](#5-marco-critérios-de-aceitação-mínimos-do-projeto)
-* [5. Marco Opcional: Adicione suporte para letras minúsculas e outros caracteres](#5-marco-opcional-adicione-suporte-para-letras-minúsculas-e-outros-caracteres)
-* [6. Considerações técnicas](#6-considerações-técnicas)
-* [7. Objetivos de aprendizagem](#7-objetivos-de-aprendizagem)
-* [8. Guias, dicas e leituras complementares](#8-guias-dicas-e-leituras-complementares)
-* [9. Para considerar o feedback do projeto](#9-para-considerar-o-feedback-do-projeto)
+- [1. Prefácio](#1-prefácio)
+- [2. Resumo do projeto](#2-resumo-do-projeto)
+- [3. Sobre o tema e usuários](#3-sobre-o-tema-e-usuários)
+- [4. Protótipo](#4-protótipo)
+- [5. Interface do projeto e objetivos alcançados](#5-interface-do-projeto-e-objetivos-alcançados)
+- [6. Instruções de uso](#6-instruções-de-uso)
+- [7. Especificações Técnicas](#7-especificações-técnicas)
+- [8. Melhorias futuras](#8-melhorias-futuras)
 
-***
+---
 
 ## 1. Prefácio
 
-Encriptar significa ocultar o conteúdo de uma mensagem a olho nu,
-para que somente as partes autorizadas possam decifrar um texto cifrado.
-A [cifra de César](https://pt.wikipedia.org/wiki/Cifra_de_C%C3%A9sar)
-é um dos primeiros tipos de criptografias conhecidas na história.
-O imperador romano Júlio César utilizava essa cifra para enviar
-ordens secretas aos seus generais no campo de batalha.
+O projeto em questão é uma aplicação web criada como parte do bootcamp da Laboratória, em que o seu principal objetivo é cifrar e/ou decifrar um texto fornecido pelo usuário através do navegador, indicando um deslocamento específico dos caracteres.
 
-A cifra de César é uma das técnicas mais simples de cifrar uma mensagem. É um
-tipo de cifra por substituição, em que cada letra do texto original é
-substituida por outra que se encontra há um número fixo de posições
-(deslocamento) mais a frente do mesmo alfabeto.
+O projeto baseou-se na cifra de César, que é uma das técnicas mais simples de cifrar uma mensagem. A cifra de césar é uma cifra por substituição em que cada letra é substituída por outra levando em consideração o número fornecido para deslocamento dos caracteres. Por exemplo, se usarmos o deslocamento de 2 posições, a palavra “LABORATORIA” seria “NCDQTCVQTKC”.
 
-Por exemplo se usarmos o deslocamento (_offset_) de 3 posições:
-
-* Alfabeto sem cifrar: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
-* Alfabeto com cifra:  D E F G H I J K L M N O P Q R S T U V W X Y Z A B C
-* A letra A será D
-* A palavra CASA será FDVD
-
-Atualmente todas as cifras de substituição alfabética simples, são decifradas
-com facilidade e não oferecem muita segurança na comunicação por si mesma,
-mas a cifra de César muitas vezes pode fazer parte de um sistema
-mais complexo de criptografia, como
-a cifra de Vigenère, e tem aplicação no sistema ROT13.
+<p align="center">
+<img src="thumb.png" alt="Cifra de César" />
+</p>
 
 ## 2. Resumo do projeto
 
-Neste projeto você criará a primeira aplicação web do _bootcamp_. Nela o usuário
-poderá cifrar e decifrar um texto no navegador indicando um deslocamento
-específico de caracteres (_offset_). Você fará isso usando HTML, CSS e
-JavaScript.
+O Universo Secreto é uma aplicação web que permite a codificação e decodificação de mensagens secretas que são enviadas entre amigos e foi inspirada na língua dos pês em que muitas crianças e adolescentes a utilizavam para comunicar entre si. Com isso, a intenção ao escolher este tema foi resgatar essa brincadeira de infância através da codificação e decodificação da mensagem.
 
-O tema é livre. Você deve pensar em alguma situação de vida real em que seja
-necessário cifrar uma mensagem e pensar em como deve ser a experiência do
-usuário (tela, explicações, mensagens, cores, marca?, etc.). Algumas ideias de
-exemplo:
-
-* Criar senhas seguras para email.
-* Cifrar cartões de crédito.
-* Ferramenta de mensagens internas de uma organização
-  em uma zona de conflito.
-* Mensagens secretas para alguma pessoa.
-
-Como continuação do projeto de pré-admissão, você retrabalhará os fundamentos
-do JavaScript, incluindo conceitos como variáveis, condicionais e funções,
-bem como eventos e manipulação básica de DOM, fundamentos HTML e CSS.
- desenvolver este projeto, você também se familiarizará com novos conceitos.
+Dessa forma, o projeto foi desenvolvido com a finalidade de criar um local para que amigos possam conversar sem que outras pessoas saibam sobre o que estão falando, apenas quem tem a chave (deslocamento) poderá acessar a mensagem e decifrá-la.
 
 ### Os objetivos gerais deste projeto são os seguintes
 
-* Trabalhar com base em um boilerplate, a estrutura básica de um projeto em diferentes
+- Trabalhar com base em um boilerplate, a estrutura básica de um projeto em diferentes
   pastas (através de módulos em JS).
-* Conhecer as ferramentas de manutenção e melhoria do código (linters e testes
+- Conhecer as ferramentas de manutenção e melhoria do código (linters e testes
   unitários).
-* Aprenda sobre objetos, estruturas, métodos e iteração (loops) em JavaScript
-* Implementar controle de versão com git (e a plataforma github)
-
-## 3. Considerações gerais
-
-* Resolvemos este projeto **individualmente**.
-* O intervalo de tempo estimado para concluir o projeto é de 1 a 3 Sprints.
-* Concentre-se em aprender e não apenas "concluir" o projeto.
-* Sugerimos que você não tente saber tudo antes de começar a codificar.
-  Não se preocupe muito agora com o que você _ainda_ não entende.
-  Você vai aprender.
-
-## 4. Marco: Critérios de Aceitação Mínimos do Projeto
-
-Esses são os requisitos que seu projeto deve atender para garantir que
-seu trabalho atenda aos objetivos principais.
-
-**1. Uma interface que deve permitir ao usuário:**
-
-* **Criptografar uma mensagem**
-  - Inserir a mensagem (texto) que deseja criptografar. A mensagem usa um
-    alfabeto simplificado (apenas letras maiúsculas).
-  - Escolher um número de deslocamento (_offset_) indicando quantas posições
-    você deseja que a cifra desloque cada caractere do alfabeto. O número
-    será positivo e inteiro (inteiro positivo).
-  - Veja o resultado da mensagem criptografada.
-
-* **Descriptografar uma mensagem**
-  - Inserir a mensagem (texto) que deseja descriptografar. A mensagem usa um
-    alfabeto simplificado (apenas letras maiúsculas).
-  - Escolher um número de deslocamento (_offset_, que corresponde ao que usamos
-    para criptografar) indicando quantas posições você deseja que a cifra
-    desloque cada caractere do alfabeto. O número será positivo e inteiro
-    (inteiro positivo).
-  - Veja o resultado da mensagem descriptografada.
-
-**2. Testes unitários dos métodos.**
-Os métodos `cipher` (`encode` e `decode`) devem ser cobertos por testes
-unitários.
-
-**3. Código do seu projeto enviado para seu repositório e interface "implantada".**
-O código final deve estar um repositório no GitHub. A interface, ou página da
-web, deve ser "implantada" usando o GitHub Pages.
-
-**4. Um README contendo uma definição de produto.**
-No README, conte-nos como você pensou sobre os usuários e qual foi o seu
-processo para definir o produto final em nível de experiência e interface.
-Estas perguntas servem de guia:
-
-* Quem são os principais usuários do produto
-* Quais são os objetivos desses usuários em relação ao seu produto
-* Como você acha que o produto que você está criando está resolvendo seus
-  problemas
-
-Com esses requisitos atendidos, você pode agendar um feedback do projeto com
-um coach.
-
-## 5. Marco Opcional: Adicione suporte para letras minúsculas e outros caracteres
-
-As partes opcionais permitem que você se aprofunde um pouco mais
-nos objetivos de aprendizagem do projeto. Tudo na vida tem prós e contras,
-decida sabiamente se você quiser gastar o tempo aprofundando/refinando ou
-aprendendo coisas novas no próximo projeto.
-
-O marco de critérios mínimos não menciona o que aconteceria com letras
-minúsculas e outros caracteres (como espaços, pontuação, ...). O _boilerplate_
-inclui alguns _tests_ (comentados no início) que você pode usar como ponto
-de partida para implementar o suporte para esses casos adicionais.
-
-## 6. Considerações técnicas
-
-A lógica do projeto deve estar implementada inteiramente em JavaScript. Nesse
-projeto **NÃO** está permitido usar bibliotecas ou frameworks, só vanilla
-JavaScript.
-
-Para iniciar este projeto você terá que fazer um _fork_ e _clone_ desse
-repositório, que contém um _boilerplate_ com testes. Um _boilerplate_ é a
-estrutura básica de um projeto que serve como ponto de partida com arquivos
-iniciais e configuração básica de dependências e testes.
-
-Os testes unitários devem cobrir no mínimo de 70% dos _statements_, _functions_
-e _lines_, e um mínimo de 50% de _branches_. O _boilerplate_ já contem o setup
-e configurações necessárias para executar os testes assim como _code coverage_
-para ver o nível de cobertura dos testes usando o comando `npm test`.
-
-O _boilerplate_ que fornecemos contém esta estrutura:
-
-```text
-./
-├── .babelrc
-├── .editorconfig
-├── .eslintrc
-├── .gitignore
-├── README.md
-├── package.json
-├── src
-│   ├── cipher.js
-│   ├── index.html
-│   ├── index.js
-│   └── style.css
-└── test
-    ├── .eslintrc
-    └── cipher.spec.js
-```
+- Aprenda sobre objetos, estruturas, métodos e iteração (loops) em JavaScript
+- Implementar controle de versão com git (e a plataforma github)
 
-### Descrição de scripts/arquivos
+## 3. Sobre o tema e usuários
 
-* `REAME.md`: deve explicar como "deployar", instalar e executar a aplicação,
-  assim como uma introdução a aplicação, suas funcionalidades e as decisões que
-  foram tomadas.
-* `src/index.html`: aqui será o ponto de entrada da sua aplicação. Este arquivo
-  deve conter a marcação HTML e chamar o CSS e JavaScript necessários.
-* `src/cipher.js`: aqui você deve implementar o objeto `cipher`, o qual já está
-  _exportado_ no _boilerplate_. Este objeto (`cipher`) deve conter dois métodos:
-  - `cipher.encode(offset, string)`: `offset` é o número de posições que
-      queremos mover para a direita no alfabeto e `string` é a mensagem (texto)
-      que queremos cifrar.
-  - `cipher.decode(offset, string)`: `offset` é o número de posições que
-      queremos mover para a esquerda no alfabeto e `string` é a mensagem (texto)
-      que queremos decifrar.
-* `src/index.js`: aqui você deve escutar os eventos de DOM, chamar
-  `cipher.encode()` e `cipher.decode()`.
-* `test/cipher.spec.js`: este arquivo contem alguns testes de exemplo e aqui
-  você deve implementar os testes para `cipher.encode()` e `cipher.decode()`.
+Os principais usuários do Universo secreto são adolescentes que desejam enviar uma mensagem “secreta” para os seus amigos, assim como na língua dos pês em que só quem sabia falar conseguia entender o que o amigo estava dizendo, no Universo secreto, apenas quem tiver posse da chave e da mensagem codificada conseguirá decodificar a mensagem e ter acesso às informações contidas nela.
 
-O _boilerplate_ inclui tarefas que executam [eslint](https://eslint.org/) e
-[htmlhint](https://github.com/yaniswang/HTMLHint) para verificar o `HTML` e
-`JavaScript` com respeito a uma guia de estilos. Ambas tarefas são executadas
-automaticamente antes de executar os testes quando usamos o comando `npm run
-test`.
+O maior objetivo deste projeto é oferecer segurança e praticidade para os usuários quando precisarem enviar mensagens confidenciais para os seus amigos, assegurando que apenas o destinatário tenha acesso às informações descritas na mensagem.
 
-No caso do `JavaScript` estamos usando o `eslint` que está configurado no
-arquivo `.eslintrc` que contem o mínimo de informação como versão do
-JavaScript/ECMAScript, o ambiente (_browser_ nesse caso) e as [regras
-recomendadas (`"eslint:recommended"`)](https://eslint.org/docs/rules/).
+## 4. Protótipo
 
-Nas regras/guias de estilo usaremos das recomendações padrão tanto para o
-`eslint` quanto `htmlhint`.
+O protótipo foi desenvolvido levando em consideração ao que iria remeter à:
 
-### Deploy
+- Universo secreto;
+- Mistério;
+- Segredo;
+- Temática lúdica voltada para o público, que são adolescentes.
 
-Disponibilizar os projetos e colocá-los "no ar" vai ser parte cotidiana do
-ciclo de desenvolvimento em produtos de tecnologia.
+Com isso, as cores que foram utilizadas com maior predominância foram: preto, roxo e azul. Justamente por abarcar os pontos citados acima, para remeter ao mistério, segredo, algo que ainda não foi explorado e por isso também a escolha do background que remete à um universo a ser explorado. A definição da tipografia utilizada nos títulos, teve como objetivo remeter à uma carta, algo escrito à mão.
 
-Para este projeto, utilizaremos o Github Pages para essa finalidade.
-O comando `npm run deploy` pode te auxiliar nessa tarefa e você pode também
-consultar a [documentação oficial](https://docs.github.com/pt/pages).
+**Protótipo da tela inicial:**
 
-## 7. Objetivos de aprendizagem
+<p align="center">
+<img src="Página inicial - Comece por aqui.png" width="700px" alt="Protótipo da tela inical" />
+</p>
 
-Reflita e depois enumere os objetivos que quer alcançar e aplique no seu projeto. Pense nisso para decidir sua estratégia de trabalho.
+## 5. Interface do projeto e objetivos alcançados
 
-### HTML
+A interface do projeto foi idealizada para trazer mais privacidade ao usuário no que se refere ao momento de codificar ou decodificar a mensagem, com isso, foi definido que em uma página o usuário deverá informar a mensagem a ser codificada ou decodificada e na página seguinte ele conseguirá visualizá-la codificada ou decodifica, a depender da sua escolha, conferindo maior privacidade à mensagem escrita anteriormente.
 
-- [ ] **Uso de HTML semântico**
+De modo geral, o projeto foi idealizado para ser fácil e intuitivo de ser utilizado, em que os usuários consigam facilmente codificar e decodificar a mensagem sem gerar dúvidas de como prosseguir.
 
-  <details><summary>Links</summary><p>
+[✔] Possui uma interface que possibilita criptografar e descriptografar.  
+[✔] Permite ao usuário escolher o número de deslocamento.  
+[✔] Aceitação de letras maiúsculas  
+[✔] Outros caracteres são mantidos (como pontuação, espaços)  
+[✔] Testes unitários dos métodos cipher (encode e decode).
 
-  * [HTML semântico](https://curriculum.laboratoria.la/pt/topics/html/02-html5/02-semantic-html)
-  * [Semantics in HTML - MDN](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML)
-</p></details>
+## 6. Instruções de uso
 
-### CSS
+Para usar o Universo secreto, o usuário terá acesso na primeira página às informações sobre o que é o Universo secreto. Ao clicar em “Comece por aqui!”, o usuário passará para a próxima página onde deverá escolher a chave numérica para o deslocamento dos caracteres, ele poderá escolher a chave em conjunto com o receptor da mensagem ou sozinho.
 
-- [ ] **Uso de seletores de CSS**
+Para escrever a mensagem, basta clicar em “Escreva a sua mensagem secreta” que será direcionado para a próxima página, onde poderá contar o seu segredo e escolher entre codificar a mensagem clicando no botão “Codificar” ou em “Decodificar” para decodificar a mensagem, assim que o usuário clicar em um dos dois botões, ele será direcionado para a página que mostrará a mensagem codificada ou decodificada, a depender da sua escolha. Após isso, o usuário deverá compartilhar a chave, a mensagem e o link para que o amigo consiga decodificar a mensagem.
 
-  <details><summary>Links</summary><p>
+Ao final da página, caso queira codificar ou decodificar outra mensagem, poderá clicar no botão “Escrever outra mensagem” que será direcionado para a página inicial.
 
-  * [Intro a CSS](https://curriculum.laboratoria.la/pt/topics/css/01-css/01-intro-css)
-  * [CSS Selectors - MDN](https://developer.mozilla.org/pt_BR/docs/Web/CSS/CSS_Selectors)
-</p></details>
+## 7. Especificações Técnicas
 
-- [ ] **Modelo de caixa (box model): borda, margem, preenchimento**
+O projeto foi desenvolvido utilizando as seguintes tecnologias e ferramentas:
 
-  <details><summary>Links</summary><p>
+- HTML5
+- CSS
+- JavaScript
+- Visual Studio Code
+- GitBash
+- GitHub
+- Canva
 
-  * [Modelo de Caixa e Display](https://curriculum.laboratoria.la/pt/topics/css/01-css/02-boxmodel-and-display)
-  * [The box model - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model)
-  * [Introduction to the CSS box model - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model)
-  * [CSS display - MDN](https://developer.mozilla.org/pt-BR/docs/Web/CSS/display)
-  * [display - CSS Tricks](https://css-tricks.com/almanac/properties/d/display/)
-</p></details>
+## 8. Melhorias futuras
 
-### Web APIs
+Algumas ideias para futuras melhorias:
 
-- [ ] **Uso de seletores de DOM**
+- Adicionar um botão de cópia para a área de transferência para facilitar a cópia da mensagem criptografada ou descriptografada;
+- Adicionar um botão "redefinir" para limpar os campos de entrada e saída;
+- Adicionar suporte para letras minúsculas.
 
-  <details><summary>Links</summary><p>
+## Autores
 
-  * [Modificando o DOM](https://curriculum.laboratoria.la/pt/topics/browser/02-dom/03-1-dom-methods-selection)
-  * [Introdução ao DOM - MDN](https://developer.mozilla.org/pt-BR/docs/Web/API/Document_Object_Model/Introduction)
-  * [Locating DOM elements using selectors - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Document_object_model/Locating_DOM_elements_using_selectors)
-</p></details>
-
-- [ ] **Manipulação de eventos de DOM (listeners, propagação, delegação)**
-
-  <details><summary>Links</summary><p>
-
-  * [Introdução a eventos - MDN](https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Building_blocks/Events)
-  * [EventTarget.addEventListener() - MDN](https://developer.mozilla.org/pt-BR/docs/Web/API/EventTarget/addEventListener)
-  * [EventTarget.removeEventListener() - MDN](https://developer.mozilla.org/pt-BR/docs/Web/API/EventTarget/removeEventListener)
-  * [Objeto Event](https://developer.mozilla.org/pt-BR/docs/Web/API/Event)
-</p></details>
-
-- [ ] **Manipulação dinâmica de DOM**
-
-  <details><summary>Links</summary><p>
-
-  * [Introdução ao DOM](https://developer.mozilla.org/pt-BR/docs/DOM/Referencia_do_DOM/Introdu%C3%A7%C3%A3o)
-  * [Node.appendChild() - MDN](https://developer.mozilla.org/pt-BR/docs/Web/API/Node/appendChild)
-  * [Document.createElement() - MDN](https://developer.mozilla.org/pt-BR/docs/Web/API/Document/createElement)
-  * [Document.createTextNode()](https://developer.mozilla.org/pt-BR/docs/Web/API/Document/createTextNode)
-  * [Element.innerHTML - MDN](https://developer.mozilla.org/pt-BR/docs/Web/API/Element/innerHTML)
-  * [Node.textContent - MDN](https://developer.mozilla.org/pt-BR/docs/Web/API/Node/textContent)
-</p></details>
-
-### JavaScript
-
-- [ ] **Tipos de dados primitivos**
-
-  <details><summary>Links</summary><p>
-
-  * [Valores Primitivos - MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Data_structures#valores_primitivos)
-</p></details>
-
-- [ ] **Strings (cadeias de caracteres)**
-
-  <details><summary>Links</summary><p>
-
-  * [Strings](https://curriculum.laboratoria.la/pt/topics/javascript/06-strings)
-  * [String — Cadeia de caracteres - MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String)
-</p></details>
-
-- [ ] **Variáveis (declaração, atribuição, escopo)**
-
-  <details><summary>Links</summary><p>
-
-  * [Valores, tipos de dados e operadores](https://curriculum.laboratoria.la/pt/topics/javascript/01-basics/01-values-variables-and-types)
-  * [Variáveis](https://curriculum.laboratoria.la/pt/topics/javascript/01-basics/02-variables)
-</p></details>
-
-- [ ] **Uso de condicionais (if-else, switch, operador ternário, lógica booleana)**
-
-  <details><summary>Links</summary><p>
-
-  * [Estruturas condicionais e repetitivas](https://curriculum.laboratoria.la/pt/topics/javascript/02-flow-control/01-conditionals-and-loops)
-  * [Tomando decisões no seu código — condicionais - MDN](https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Building_blocks/conditionals)
-</p></details>
-
-- [ ] **Uso de laços (while, for, for..of)**
-
-  <details><summary>Links</summary><p>
-
-  * [Laços (Loops)](https://curriculum.laboratoria.la/pt/topics/javascript/02-flow-control/02-loops)
-  * [Laços e iterações - MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Loops_and_iteration)
-</p></details>
-
-- [ ] **Funções (params, args, return)**
-
-  <details><summary>Links</summary><p>
-
-  * [Funções (controle de fluxo)](https://curriculum.laboratoria.la/pt/topics/javascript/02-flow-control/03-functions)
-  * [Funções clássicas](https://curriculum.laboratoria.la/pt/topics/javascript/03-functions/01-classic)
-  * [Arrow Functions](https://curriculum.laboratoria.la/pt/topics/javascript/03-functions/02-arrow)
-  * [Funções — blocos reutilizáveis de código - MDN](https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Building_blocks/Functions)
-</p></details>
-
-- [ ] **Testes unitários (unit tests)**
-
-  <details><summary>Links</summary><p>
-
-  * [Introdução ao Jest - Documentação oficial](https://jestjs.io/docs/pt-BR/getting-started)
-</p></details>
-
-- [ ] **Módulos de ECMAScript (ES modules)**
-
-  <details><summary>Links</summary><p>
-
-  * [import - MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/import)
-  * [export - MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/export)
-</p></details>
-
-- [ ] **Uso de linter (ESLINT)**
-
-- [ ] **Uso de identificadores descritivos (Nomenclatura e Semântica)**
-
-### Controle de Versões (Git e GitHub)
-
-- [ ] **Git: Instalação e configuração**
-
-- [ ] **Git: Controle de versão com git (init, clone, add, commit, status, push, pull, remote)**
-
-- [ ] **GitHub: Criação de contas e repositórios, configuração de chave SSH**
-
-- [ ] **GitHub: Implantação com GitHub Pages**
-
-  <details><summary>Links</summary><p>
-
-  * [Site oficial do GitHub Pages](https://pages.github.com/)
-</p></details>
-
-### Centrado no usuário
-
-- [ ] **Desenhar e desenvolver um produto ou serviço colocando as usuárias no centro**
-
-### Design de produto
-
-- [ ] **Criar protótipos para obter feedback e iterar**
-
-- [ ] **Aplicar os princípios de desenho visual (contraste, alinhamento, hierarquia)**
-
-## 8. Guias, dicas e leituras complementares
-
-### Primeiros passos
-
-1. Se assegure de ter um bom :pencil: editor de texto, algo
-   como [VS Code](https://code.visualstudio.com/).
-2. Para executar os comandos você precisará de um :shell: UNIX Shell, que é um
-   programa que interpreta linhas de comando (command-line interpreter) e também
-   deve ter o git instalado. Se você usa um sistema operacional "UNIX-like",
-   como GNU/Linux ou MacOS, você já tem um _shell_ (terminal) instalado (e
-   provavelmente o `git` também). Se você usa Windows você pode usar o [Git
-   bash](https://git-scm.com/download/win), embora seja recomendado que você
-   teste :penguin: GNU/Linux.
-3. Faça seu próprio :fork_and_knife:
-   [fork](https://help.github.com/articles/fork-a-repo/) do repositório. Seus
-   _mentores_ compartilharão com você um _link_ para um repositório privado e te
-   darão acesso a este repositório.
-4. :arrow_down: [Clone](https://help.github.com/articles/cloning-a-repository/)
-   o _fork_ para seu computador (cópia local).
-5. 📦 Instale as dependências do projeto rodando o comando `npm install`. Mas
-   antes disso tenha certeza de ter instalado o [Node.js](https://nodejs.org/)
-   (que inclui o [npm](https://docs.npmjs.com/)).
-6. Se tudo foi bem, você deve conseguir executar os :traffic_light: testes
-   unitários com o comando `npm test`.
-7. Para ver a interface do seu programa no navegador, use o comando `npm start`
-   para iniciar o servidor web e entre na url `http://localhost:5000` no seu
-   navegador.
-8. Let's Code! :rocket:
-
-Este [video](https://drive.google.com/file/d/1CM6ZfpGfJMF6A8IcXoK5cFBBq-CY8oBR/view?usp=sharing)
-da Paloma também pode te ajudar nos seus primeiros passos ;)
-
-### Recursos extras
-
-Participe do canal Slack
-[#project-cipher](https://claseslaboratoria.slack.com/archives/C03LJSH6R7D)
-para conversar e pedir ajuda no projeto.
-
-A seguir um vídeo do Daniel que te ajudará a entender a fórmula matemática usada
-pela Cifra de César e algumas coisas mais que deve saber para resolver o seu
-projeto. Escute com atenção e siga seus conselhos ! :)
-
-[![Dicas Cifra de
-César](https://img.youtube.com/vi/utiLWBXmNQU/0.jpg)](https://www.youtube.com/watch?v=utiLWBXmNQU)
-
-Desenvolvimento Front-end:
-
-* [Aprenda mais sobre
-  `charCodeAt()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt)
-* [Aprenda mais sobre
-  `String.fromCharCode()`](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode)
-* [Aprenda mais sobre
-  `ASCII`](https://web.fe.up.pt/~ee96100/projecto/Tabela%20ascii.htm)
-* [Documentação do NPM](https://docs.npmjs.com/)
-* Saiba mais sobre [objetos](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Working_with_Objects)
-  e [como definir métodos](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Working_with_Objects#definindo_m%C3%A9todos##)
-
-## 9. Para considerar o feedback do projeto
-
-Em resumo, os critérios mínimos de aceitação do projeto para considerar o
-Project Feedback:
-
-* [ ] Possui uma interface que permite ao usuário criptografar e
-  descriptografar.
-* [ ] O projeto será entregue incluindo testes unitários dos métodos `cipher`
-  (`encode` e `decode`).
-* [ ] O projeto será entregue livre de _erros_ de `eslint` (_warnings_ são ok).
-* [ ] O código do seu projeto será entregue no GitHub.
-* [ ] A interface será "implantada" usando o GitHub Pages.
-* [ ] O README contém uma definição de produto.
+- **Iana Rodrigues** - <a href="https://github.com/ianarodrigues"> @ianarodrigues</a>
