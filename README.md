@@ -94,7 +94,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias e ferramentas:
 
 ## 8. Melhorias futuras
 
-Algumas ideias para futuras melhorias:
+Algumas ideias para melhorias futuras:
 
 - Adicionar um botão de cópia para a área de transferência para facilitar a cópia da mensagem criptografada ou descriptografada;
 - Adicionar um botão "redefinir" para limpar os campos de entrada e saída;
