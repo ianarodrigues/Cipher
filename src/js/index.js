@@ -13,7 +13,7 @@ function codeMessage() {
   return localStorage.setItem("codedMessage", newMessage);
 }
 function decodeMessage() {
-  const newMessage = cipher.decode(getKey(), getMessage()); // return localStorage.setItem("decodedMessage", newMessage);
+  const newMessage = cipher.decode(getKey(), getMessage());
   return localStorage.setItem("decodedMessage", newMessage);
 }
 document.querySelector(".btn-encode").addEventListener("click", codeMessage);

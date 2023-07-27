@@ -67,6 +67,10 @@ A interface do projeto foi idealizada para trazer mais privacidade ao usuário n
 
 De modo geral, o projeto foi idealizado para ser fácil e intuitivo de ser utilizado, em que os usuários consigam facilmente codificar e decodificar a mensagem sem gerar dúvidas de como prosseguir.
 
+<p align="center">
+<img src="demonstração.gif" alt="Demonstração do projeto"/>
+</p>
+
 [✔] Possui uma interface que possibilita criptografar e descriptografar.  
 [✔] Permite ao usuário escolher o número de deslocamento.  
 [✔] Aceitação de letras maiúsculas  
